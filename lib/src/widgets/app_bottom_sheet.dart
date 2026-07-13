@@ -9,11 +9,12 @@ class AppBottomSheet extends StatelessWidget {
   static Future<T?> show<T>(
     BuildContext context, {
     required Widget child,
-    bool isScrollControlled = false,
+    bool isScrollControlled = true,
   }) {
     return showModalBottomSheet<T>(
       context: context,
       isScrollControlled: isScrollControlled,
+      useSafeArea: true,
       builder: (_) => AppBottomSheet(child: child),
     );
   }
@@ -21,8 +22,9 @@ class AppBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      bottom:
-          true,  
+      bottom: true,
+      left: true,
+      right: true,
       child: Padding(
         padding: const EdgeInsets.only(
           bottom: 16,
@@ -30,9 +32,11 @@ class AppBottomSheet extends StatelessWidget {
           right: 24,
           top: 12,
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [_Handle(), child],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [_Handle(), child],
+          ),
         ),
       ),
     );

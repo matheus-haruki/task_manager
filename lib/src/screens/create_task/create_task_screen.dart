@@ -80,63 +80,66 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const SectionHeader(label: 'Informações da Tarefa'),
-              const SizedBox(height: 20),
-              TextFormField(
-                controller: _titleController,
-                textInputAction: TextInputAction.next,
-                decoration: const InputDecoration(labelText: 'Título *'),
-                validator: (v) =>
-                    _requiredValidator(v, 'O título não pode ser vazio'),
-              ),
-              const SizedBox(height: 16),
-              TextFormField(
-                controller: _descriptionController,
-                minLines: 4,
-                maxLines: 8,
-                textInputAction: TextInputAction.newline,
-                decoration: const InputDecoration(
-                  labelText: 'Descrição *',
-                  alignLabelWithHint: true,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SectionHeader(label: 'Informações da Tarefa'),
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: _titleController,
+                  textInputAction: TextInputAction.next,
+                  decoration: const InputDecoration(labelText: 'Título *'),
+                  validator: (v) =>
+                      _requiredValidator(v, 'O título não pode ser vazio'),
                 ),
-                validator: (v) =>
-                    _requiredValidator(v, 'A descrição não pode ser vazia'),
-              ),
-              const SizedBox(height: 32),
-              const InfoBanner(),
-              const SizedBox(height: 24),
-              ElevatedButton.icon(
-                onPressed: _saveEnabled ? _save : null,
-                icon: const Icon(Icons.check),
-                label: const Text('Salvar Tarefa'),
-                style: ElevatedButton.styleFrom(
-                  disabledBackgroundColor: theme.brightness == Brightness.light
-                      ? AppColors.completedBackground
-                      : AppColors.completedBackgroundDark,
-                  disabledForegroundColor: AppColors.completedText,
-                ),
-              ),
-              const SizedBox(height: 12),
-              OutlinedButton(
-                onPressed: () => Navigator.pop(context),
-                style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50),
+                const SizedBox(height: 16),
+                TextFormField(
+                  controller: _descriptionController,
+                  minLines: 4,
+                  maxLines: 8,
+                  textInputAction: TextInputAction.newline,
+                  decoration: const InputDecoration(
+                    labelText: 'Descrição *',
+                    alignLabelWithHint: true,
                   ),
-                  side: BorderSide(color: theme.colorScheme.primary),
-                  foregroundColor: theme.colorScheme.onSurface,
+                  validator: (v) =>
+                      _requiredValidator(v, 'A descrição não pode ser vazia'),
                 ),
-                child: const Text('Cancelar', style: TextStyle(fontSize: 16)),
-              ),
-            ],
+                const SizedBox(height: 32),
+                const InfoBanner(),
+                const SizedBox(height: 24),
+                ElevatedButton.icon(
+                  onPressed: _saveEnabled ? _save : null,
+                  icon: const Icon(Icons.check),
+                  label: const Text('Salvar Tarefa'),
+                  style: ElevatedButton.styleFrom(
+                    disabledBackgroundColor:
+                        theme.brightness == Brightness.light
+                        ? AppColors.completedBackground
+                        : AppColors.completedBackgroundDark,
+                    disabledForegroundColor: AppColors.completedText,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                OutlinedButton(
+                  onPressed: () => Navigator.pop(context),
+                  style: OutlinedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    side: BorderSide(color: theme.colorScheme.primary),
+                    foregroundColor: theme.colorScheme.onSurface,
+                  ),
+                  child: const Text('Cancelar', style: TextStyle(fontSize: 16)),
+                ),
+              ],
+            ),
           ),
         ),
       ),

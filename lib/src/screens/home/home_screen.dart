@@ -93,33 +93,35 @@ class _HomeScreenState extends State<HomeScreen> {
               });
             },
           ),
-          body: Column(
-            children: [
-              Expanded(
-                child: tasks.isEmpty
-                    ? EmptyState(isSearching: state.isSearching)
-                    : ListView.builder(
-                        padding: const EdgeInsets.only(top: 8, bottom: 100),
-                        itemCount: tasks.length,
-                        itemBuilder: (context, index) {
-                          final task = tasks[index];
-                          return Dismissible(
-                            key: ValueKey(task.id),
-                            direction: DismissDirection.endToStart,
-                            confirmDismiss: (_) => _confirmDelete(),
-                            onDismissed: (_) =>
-                                context.read<TaskCubit>().deleteTask(task.id),
-                            background: const DeleteBackground(),
-                            child: TaskCard(
-                              task: task,
-                              onComplete: () => _confirmComplete(task.id),
-                              onTap: () => TaskDetailModal.show(context, task),
-                            ),
-                          );
-                        },
-                      ),
-              ),
-            ],
+          body: SafeArea(
+            child: Column(
+              children: [
+                Expanded(
+                  child: tasks.isEmpty
+                      ? EmptyState(isSearching: state.isSearching)
+                      : ListView.builder(
+                          padding: const EdgeInsets.only(top: 8, bottom: 100),
+                          itemCount: tasks.length,
+                          itemBuilder: (context, index) {
+                            final task = tasks[index];
+                            return Dismissible(
+                              key: ValueKey(task.id),
+                              direction: DismissDirection.endToStart,
+                              confirmDismiss: (_) => _confirmDelete(),
+                              onDismissed: (_) =>
+                                  context.read<TaskCubit>().deleteTask(task.id),
+                              background: const DeleteBackground(),
+                              child: TaskCard(
+                                task: task,
+                                onComplete: () => _confirmComplete(task.id),
+                                onTap: () => TaskDetailModal.show(context, task),
+                              ),
+                            );
+                          },
+                        ),
+                ),
+              ],
+            ),
           ),
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () => Navigator.push(
