@@ -120,8 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
               context,
               MaterialPageRoute(builder: (_) => const CreateTaskScreen()),
             ),
-            icon: const Icon(Icons.add),
-            label: const Text('Nova Tarefa'),
+            label: const Text('Criar Tarefa'),
           ),
         );
       },

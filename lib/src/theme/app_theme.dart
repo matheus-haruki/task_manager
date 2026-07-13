@@ -25,7 +25,13 @@ class AppTheme {
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: AppColors.xpYellow,
         foregroundColor: AppColors.textPrimaryLight,
+        shape: StadiumBorder(),
+        extendedTextStyle: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontFamily: 'Inter',
+        ),
       ),
+
       cardTheme: CardThemeData(
         color: AppColors.surfaceLight,
         elevation: 2,
@@ -66,7 +72,13 @@ class AppTheme {
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: AppColors.xpYellow,
         foregroundColor: AppColors.textPrimaryLight,
+        shape: StadiumBorder(),
+        extendedTextStyle: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontFamily: 'Inter',
+        ),
       ),
+
       cardTheme: CardThemeData(
         color: AppColors.surfaceDark,
         elevation: 0,

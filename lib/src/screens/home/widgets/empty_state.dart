@@ -35,7 +35,7 @@ class EmptyState extends StatelessWidget {
             Text(
               isSearching
                   ? 'Tente buscar por outro termo'
-                  : 'Toque em "Nova Tarefa" para começar',
+                  : 'Toque em "Criar Tarefa" para começar',
               style: TextStyle(fontSize: 14, color: textColor),
             ),
           ],
