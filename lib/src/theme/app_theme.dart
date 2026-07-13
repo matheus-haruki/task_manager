@@ -20,6 +20,8 @@ class AppTheme {
         backgroundColor: AppColors.backgroundLight,
         foregroundColor: AppColors.textPrimaryLight,
         elevation: 0,
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
         centerTitle: false,
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -66,6 +68,7 @@ class AppTheme {
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.backgroundDark,
         foregroundColor: AppColors.textPrimaryDark,
+        scrolledUnderElevation: 0,
         elevation: 0,
         centerTitle: false,
       ),

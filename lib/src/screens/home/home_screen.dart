@@ -7,7 +7,6 @@ import 'package:task_manager/src/screens/create_task/create_task_screen.dart';
 import 'package:task_manager/src/screens/home/widgets/delete_background.dart';
 import 'package:task_manager/src/screens/home/widgets/empty_state.dart';
 import 'package:task_manager/src/screens/home/widgets/home_app_bar.dart';
-import 'package:task_manager/src/screens/home/widgets/search_bar.dart';
 import 'package:task_manager/src/screens/home/widgets/sort_sheet.dart';
 import 'package:task_manager/src/theme/app_colors.dart';
 import 'package:task_manager/src/widgets/confirm_sheet.dart';
@@ -23,6 +22,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _searchController = TextEditingController();
+  bool _isSearching = false; 
 
   @override
   void initState() {
@@ -85,10 +85,16 @@ class _HomeScreenState extends State<HomeScreen> {
             hasTasks: state.tasks.isNotEmpty,
             sortOption: state.sortOption,
             onSort: () => _openSortSheet(state.sortOption),
+            isSearching: _isSearching,
+            searchController: _searchController,
+            onToggleSearch: () {
+              setState(() {
+                _isSearching = !_isSearching;
+              });
+            },
           ),
           body: Column(
             children: [
-              TaskSearchBar(controller: _searchController),
               Expanded(
                 child: tasks.isEmpty
                     ? EmptyState(isSearching: state.isSearching)
