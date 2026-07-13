@@ -20,11 +20,20 @@ class AppBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32, left: 24, right: 24, top: 12),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [_Handle(), child],
+    return SafeArea(
+      bottom:
+          true,  
+      child: Padding(
+        padding: const EdgeInsets.only(
+          bottom: 16,
+          left: 24,
+          right: 24,
+          top: 12,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [_Handle(), child],
+        ),
       ),
     );
   }

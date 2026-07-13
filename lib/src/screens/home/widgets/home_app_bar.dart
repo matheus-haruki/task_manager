@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_manager/src/cubits/theme_cubit.dart';
 import 'package:task_manager/src/models/sort_option.dart';
+import 'package:task_manager/src/screens/home/widgets/theme_bottom_sheet.dart';
 import 'package:task_manager/src/theme/app_colors.dart';
 import 'package:task_manager/src/theme/app_theme_extension.dart';
 
@@ -119,6 +122,22 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                 tooltip: 'Buscar',
                 icon: const Icon(Icons.search),
                 onPressed: onToggleSearch,
+              ),
+              IconButton(
+                tooltip: 'Aparência',
+                icon: const Icon(Icons.brightness_6_outlined),
+                onPressed: () async {
+                  final currentTheme = context.read<ThemeCubit>().state;
+
+                  final selectedTheme = await ThemeBottomSheet.show(
+                    context,
+                    currentTheme,
+                  );
+
+                  if (selectedTheme != null && context.mounted) {
+                    context.read<ThemeCubit>().changeTheme(selectedTheme);
+                  }
+                },
               ),
               IconButton(
                 tooltip: 'Ordenar',
