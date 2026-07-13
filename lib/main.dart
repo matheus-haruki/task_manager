@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_manager/src/repositories/task_storage.dart';
 import 'src/cubits/task_cubit.dart';
 import 'src/cubits/theme_cubit.dart';  
 import 'src/screens/home/home_screen.dart';
@@ -16,7 +17,7 @@ class TaskManagerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => TaskCubit()),
+        BlocProvider(create: (_) => TaskCubit(storage: TaskStorage())),  
         BlocProvider(create: (_) => ThemeCubit()),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
