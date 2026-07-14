@@ -2,7 +2,7 @@
 
 Aplicativo de gerenciamento de tarefas desenvolvido em **Flutter**, com duas telas
 principais (Home com lista de tarefas e tela de Cadastro), permitindo criar, visualizar, buscar, ordenar e
-concluir tarefas. Desenvolvido como desafio técnico para a vaga de Engenheiro de Software Mobile Jr.
+concluir tarefas. Desenvolvido como desafio técnico para a vaga de Engenheiro de Software Mobile Jr da XPinc.
 
 O projeto cumpre **100% dos requisitos obrigatórios** e **bonus points** propostos, com foco em código limpo, testabilidade e experiência do usuário.
 
