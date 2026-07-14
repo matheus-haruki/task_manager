@@ -62,17 +62,6 @@ flutter test
 
 ## 📱 Screenshots
 
-### Busca em ação
-
-A busca filtra as tarefas por título em tempo real, com transição animada da barra de pesquisa similar ao app da XP.
-
-<table>
-  <tbody>
-    <tr>
-      <td><img src="docs/screenshots/search_demo.gif" width="250" alt="Busca de tarefas"></td>
-    </tr>
-  </tbody>
-</table>
 
 ### Home — tema claro e escuro
 
@@ -144,6 +133,18 @@ Conclusão (irreversível) e exclusão por swipe, ambas protegidas por um bottom
       <td><img src="docs/screenshots/sort_sheet.png" width="230" alt="Ordenação"></td>
       <td><img src="docs/screenshots/theme_sheet.png" width="230" alt="Seleção de tema"></td>
       <td><img src="docs/screenshots/detail_modal.png" width="230" alt="Detalhes da tarefa"></td>
+    </tr>
+  </tbody>
+</table>
+
+### Busca em ação
+
+A busca filtra as tarefas por título em tempo real, com transição animada da barra de pesquisa similar ao app da XP.
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="docs/screenshots/search_demo.gif" width="250" alt="Busca de tarefas"></td>
     </tr>
   </tbody>
 </table>
