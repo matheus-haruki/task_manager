@@ -38,7 +38,7 @@ class TaskCubit extends Cubit<TaskState> {
     final newTasks = [task, ...state.tasks];
 
     emit(state.copyWith(tasks: newTasks));
-    _saveState(newTasks);  
+    _saveState(newTasks);
   }
 
   void completeTask(int id) {

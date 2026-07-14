@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:task_manager/src/models/task.dart';  
+import 'package:task_manager/src/models/task.dart';
 
 class TaskStorage {
   static const String _storageKey = 'tasks_data';
@@ -15,13 +15,15 @@ class TaskStorage {
     final prefs = await SharedPreferences.getInstance();
     final String? tasksString = prefs.getString(_storageKey);
 
-    if (tasksString == null) return [];  
+    if (tasksString == null) return [];
 
     try {
       final List<dynamic> decodedData = jsonDecode(tasksString);
-      return decodedData.map((map) => Task.fromMap(map as Map<String, dynamic>)).toList();
+      return decodedData
+          .map((map) => Task.fromMap(map as Map<String, dynamic>))
+          .toList();
     } catch (e) {
-      return []; 
+      return [];
     }
   }
 }

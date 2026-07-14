@@ -62,14 +62,17 @@ void main() {
       expect(completed.createdAt, task.createdAt);
     });
 
-    test('é idempotente: concluir uma tarefa já concluída retorna a mesma instância', () {
-      final done = buildTask(isDone: true);
+    test(
+      'é idempotente: concluir uma tarefa já concluída retorna a mesma instância',
+      () {
+        final done = buildTask(isDone: true);
 
-      final result = done.complete();
+        final result = done.complete();
 
-      expect(identical(result, done), isTrue);
-      expect(result.isDone, isTrue);
-    });
+        expect(identical(result, done), isTrue);
+        expect(result.isDone, isTrue);
+      },
+    );
   });
 
   group('copyWith', () {

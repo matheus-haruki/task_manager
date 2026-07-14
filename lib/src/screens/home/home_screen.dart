@@ -22,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _searchController = TextEditingController();
-  bool _isSearching = false; 
+  bool _isSearching = false;
 
   @override
   void initState() {
@@ -114,7 +114,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: TaskCard(
                                 task: task,
                                 onComplete: () => _confirmComplete(task.id),
-                                onTap: () => TaskDetailModal.show(context, task),
+                                onTap: () =>
+                                    TaskDetailModal.show(context, task),
                               ),
                             );
                           },
